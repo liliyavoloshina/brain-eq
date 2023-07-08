@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  src: url('./fonts/Inter-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  src: url('./fonts/Inter-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  src: url('./fonts/Inter-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 800;
+  src: url('./fonts/Inter-ExtraBold.ttf');
+}
+
+@layer base {
+  :root {
+    --primary: theme('colors.violet.10');
+    --primary-light: theme('colors.violet.20');
+    --primary-muted: theme('colors.violet.30');
+    --primary-bg: theme('colors.gray.90');
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    height: 100vh;
+  }
+
+  .inset-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.theme-dark {
+  --primary-bg: theme('colors.gray.90');
+}
+
+.theme-light {
+  --primary-bg: theme('colors.gray.90');
+}
+
+.state-sleep {
+  --primary: theme('colors.violet.10');
+  --primary-light: theme('colors.violet.20');
+  --primary-muted: theme('colors.violet.30');
+}
+
+.state-meditation {
+  --primary: theme('colors.azure.10');
+  --primary-light: theme('colors.azure.20');
+  --primary-muted: theme('colors.azure.30');
+}
+
+.state-learning {
+  --primary: theme('colors.green.10');
+  --primary-light: theme('colors.green.20');
+  --primary-muted: theme('colors.green.30');
+}
+
+.state-focus {
+  --primary: theme('colors.canary.10');
+  --primary-light: theme('colors.canary.20');
+  --primary-muted: theme('colors.canary.30');
+}
+
+.state-awareness {
+  --primary: theme('colors.orange.10');
+  --primary-light: theme('colors.orange.20');
+  --primary-muted: theme('colors.orange.30');
+}
