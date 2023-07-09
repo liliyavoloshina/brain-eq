@@ -23,7 +23,7 @@ export default function InfoModal({ isOpen }: Props) {
 
   const onChangeFrequency = (stateKey: string) => {
     setIsFrequencyChanged(true)
-    setBeatFrequency(STATE_RANGE[stateKey][0])
+    setBeatFrequency(STATE_RANGE[+stateKey][0])
   }
 
   return (
@@ -84,11 +84,11 @@ export default function InfoModal({ isOpen }: Props) {
             return (
               <button
                 key={key}
-                className={`relative w-4 h-4 rounded-full z-20 ${BG_STATE_COLOR[key]}`}
+                className={`relative w-4 h-4 rounded-full z-20 ${BG_STATE_COLOR[+key]}`}
                 onClick={() => onChangeFrequency(key)}
               >
                 <div
-                  className={`absolute bottom-5 left-[-6px] text-xs font-semibold whitespace-nowrap ${TEXT_STATE_COLOR[key]}`}
+                  className={`absolute bottom-5 left-[-6px] text-xs font-semibold whitespace-nowrap ${TEXT_STATE_COLOR[+key]}`}
                 >
                   {range[0]}
                   {idx + 1 === arr.length && '+'} Hz

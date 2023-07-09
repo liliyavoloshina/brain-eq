@@ -1,11 +1,11 @@
 import RangeSlider from '@/components/RangeSlider'
 import { useContext, useEffect, useMemo, useState } from 'react'
-import Pizzicato from 'pizzicato'
+import Pizzicato  from 'pizzicato'
 import AudioVisualizer from '../components/AudioVisualizer'
 import { FrequencyContext, StateContext } from '../utils/context'
 import { STATE_RANGE, STATES } from '../utils/constants'
 
-export default function PlayerView(): JSX.Element {
+export default function PlayerView() {
   const { setState } = useContext(StateContext)
   const {
     beatFrequency,
@@ -82,7 +82,7 @@ export default function PlayerView(): JSX.Element {
   const onChangeState = () => {
     for (const [key, range] of Object.entries(STATE_RANGE)) {
       if (beatFrequency >= range[0] && beatFrequency <= range[1]) {
-        setState(STATES[key])
+        setState(STATES[+key])
       }
     }
   }
