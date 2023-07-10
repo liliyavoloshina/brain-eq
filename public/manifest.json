@@ -1,7 +1,7 @@
 {
-  "theme_color": "#7D9AFF",
-  "background_color": "#7D9AFF",
-  "display": "browser",
+  "theme_color": "#171717",
+  "background_color": "#141B29",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "name": "Brain EQ",
@@ -27,6 +27,12 @@
       "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/maskable_icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
