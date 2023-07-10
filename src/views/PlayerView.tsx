@@ -1,20 +1,13 @@
 import RangeSlider from '@/components/RangeSlider'
 import { useContext, useEffect, useMemo, useState } from 'react'
-import Pizzicato  from 'pizzicato'
+import Pizzicato from 'pizzicato'
 import AudioVisualizer from '../components/AudioVisualizer'
 import { FrequencyContext, StateContext } from '../utils/context'
 import { STATE_RANGE, STATES } from '../utils/constants'
 
 export default function PlayerView() {
   const { setState } = useContext(StateContext)
-  const {
-    beatFrequency,
-    setBeatFrequency,
-    baselineFrequency,
-    setBaselineFrequency,
-    isFrequencyChanged,
-    setIsFrequencyChanged
-  } = useContext(FrequencyContext)
+  const { beatFrequency, setBeatFrequency, baselineFrequency, setBaselineFrequency, isFrequencyChanged, setIsFrequencyChanged } = useContext(FrequencyContext)
 
   const [isVolumeChanged, setIsVolumeChanged] = useState(false)
   const [volume, setVolume] = useState(50)
@@ -28,10 +21,7 @@ export default function PlayerView() {
   // const [minutes, setMinutes] = useState(10)
   // const duration = useMemo(() => minutes * 60, [minutes])
 
-  const beatAndBaselineFrequency = useMemo(
-    () => beatFrequency + baselineFrequency,
-    [beatFrequency, baselineFrequency]
-  )
+  const beatAndBaselineFrequency = useMemo(() => beatFrequency + baselineFrequency, [beatFrequency, baselineFrequency])
 
   const createSound = (frequency: number): Pizzicato['Sound'] => {
     const sound = new Pizzicato.Sound({
@@ -122,12 +112,7 @@ export default function PlayerView() {
 
   return (
     <div className="relative h-full">
-      <AudioVisualizer
-        isPlaying={isPlaying}
-        togglePlaying={setIsPlaying}
-        rightSide={beatAndBaselineFrequency}
-        leftSide={baselineFrequency}
-      />
+      <AudioVisualizer isPlaying={isPlaying} togglePlaying={setIsPlaying} rightSide={beatAndBaselineFrequency} leftSide={baselineFrequency} />
       <div className="relative flex flex-col gap-[8px] pt-[22px]">
         <RangeSlider
           value={beatFrequency}
@@ -136,7 +121,10 @@ export default function PlayerView() {
           min={0}
           max={40}
           onMouseUp={(v: number): void => onDynamicFrequency(v, setBeatFrequency)}
-          setValue={(v: number): void => setBeatFrequency(v)}
+          setValue={(v: number): void => {
+            setBeatFrequency(v)
+            onChangeState()
+          }}
         />
         <RangeSlider
           value={baselineFrequency}
