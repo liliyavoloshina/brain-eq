@@ -37,10 +37,7 @@ export default function App(): JSX.Element {
             setIsFrequencyChanged
           }}
         >
-          <div
-            className={['h-full', `theme-${theme}`, `state-${state}`].join(' ')}
-            id="colors-container"
-          >
+          <div className={['h-full relative overflow-hidden', `theme-${theme}`, `state-${state}`].join(' ')} id="colors-container">
             <div className="absolute m-auto top-[-50px] left-0 right-0 w-[150%] h-[100%] bg-radial-gradient opacity-30"></div>
             <div className="bg-primary-bg h-full">
               <div className="container h-full mx-auto px-8 pt-8">
