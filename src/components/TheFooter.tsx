@@ -9,16 +9,11 @@ export default function TheFooter() {
         <div>
           <span>
             by{' '}
-            <a href="https://www.youtube.com/watch?v=F6sC8qlRaHQ&ab_channel=L.M." target="_blank" className="font-semibold hover:opacity-80 hover:transition-all" rel="noreferrer">
+            <a href="https://github.com/enjilo" target="_blank" className="font-semibold hover:opacity-80 hover:transition-all" rel="noreferrer">
               enjilo
             </a>{' '}
             &{' '}
-            <a
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
-              target="_blank"
-              className="font-semibold hover:opacity-80 hover:transition-all"
-              rel="noreferrer"
-            >
+            <a href="https://github.com/liliyavoloshina" target="_blank" className="font-semibold hover:opacity-80 hover:transition-all" rel="noreferrer">
               lilya
             </a>
           </span>
