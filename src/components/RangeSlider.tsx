@@ -11,32 +11,18 @@ interface Props {
   step?: number
 }
 
-export default function RangeSlider({
-  value,
-  label,
-  min,
-  max,
-  postfix,
-  setValue,
-  onMouseUp,
-  step = 0.1
-}: Props): JSX.Element {
+export default function RangeSlider({ value, label, min, max, postfix, setValue, onMouseUp, step = 0.1 }: Props): JSX.Element {
   const [bgGradient, setBgGradient] = useState('')
 
   useEffect(() => {
     setBgGradient(
-      `linear-gradient(to right, var(--primary) 0%, var(--primary) ${
-        ((value - min) / (max - min)) * 100
-      }%, #FFFFFF33 ${((value - min) / (max - min)) * 100}%, #FFFFFF33 100%)`
+      `linear-gradient(to right, var(--primary) 0%, var(--primary) ${((value - min) / (max - min)) * 100}%, #FFFFFF33 ${((value - min) / (max - min)) * 100}%, #FFFFFF33 100%)`
     )
   }, [value])
 
   return (
     <div>
-      <label
-        htmlFor="range"
-        className="flex justify-between mb-[5px] text-sm font-medium select-none"
-      >
+      <label htmlFor="range" className="flex justify-between mb-[5px] text-sm font-medium select-none">
         <div className="text-gray-10">{label}</div>
         <div className="text-gray-10 opacity-80">
           {value} {postfix}
@@ -51,6 +37,9 @@ export default function RangeSlider({
         value={value}
         onInput={(e): void => setValue(+e.currentTarget.value)}
         onMouseUp={(e): void => {
+          onMouseUp(+e.currentTarget.value)
+        }}
+        onTouchEnd={(e): void => {
           onMouseUp(+e.currentTarget.value)
         }}
         style={{ background: bgGradient }}
