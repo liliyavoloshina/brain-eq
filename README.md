@@ -6,6 +6,8 @@ Deployment link - [brain-eq](https://brain-eq.vercel.app/)
 
 ## Packages
 
+Stack:
+
 1. React
 2. Typescript
 3. Tailwind
